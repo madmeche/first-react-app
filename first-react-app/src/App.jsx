@@ -3,8 +3,11 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Spidey from "./spidey";
-import Welcome from './Components/Welcome';
-
+import Welcome from "./Components/Welcome";
+import FullName from "./Components/Name/FullName";
+import ComplexComment from "./Components/Comment/ComplexComment";
+import Comment from "./Components/Comment/Comment";
+import MoviesList from "./Components/Movies/MoviesList"
 
 function App() {
   const [count, setCount] = useState(1);
@@ -31,6 +34,15 @@ function App() {
     catchPhrase: "I am Batman.",
   };
 
+  const comment = {
+    date: new Date(),
+    text: "I hope you enjoy learning React!",
+    author: {
+      name: "Hello Kitty",
+      avatarUrl: "https://placekitten.com/g/64/64",
+    },
+  };
+
   return (
     //  empty brackets is also <React.Fragment>
     <>
@@ -45,8 +57,8 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         {" "}
-        //change from card to variable. then use JS to call the variable. use JS
-        by using curly brackets
+        {/* //change from card to variable. then use JS to call the variable. use JS
+        by using curly brackets */}
         {/* <button onClick={() => setCount((count) => count + [0])}> */}
         {/* <div> </div>
         </button> */}
@@ -58,15 +70,35 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <Spidey superhero= {spiderman} countHere = {count}/>
+      <Spidey superhero={spiderman} countHere={count} />
 
-      <Spidey superhero = {batman} countHere = {count2}/>
+      <Spidey superhero={batman} countHere={count2} />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
 
-      <Welcome name='Students'><p>Child Element</p></Welcome>
-      <Welcome name2='John'></Welcome>
+      <Welcome name="Students">
+        <p>Child Element</p>
+      </Welcome>
+      <Welcome name2="John"></Welcome>
+      <FullName first="Jim" last="Bob"></FullName>
+
+      {/* <ComplexComment
+        author={comment.author}
+        date={comment.date}
+        text={comment.text}
+      /> */}
+
+      <div>
+        <p> Test </p>
+      </div>
+      <Comment
+        author={comment.author}
+        date={comment.date}
+        text={comment.date}
+      />
+
+      <MoviesList/>
     </>
   );
 }
